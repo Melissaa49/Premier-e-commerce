@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier l'Abonnement</title>
+    <link rel="stylesheet" href="/css/abonnement.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Modifier l'Abonnement</h1>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Modifier les Informations</h2>
+            </div>
+            <div class="card-body">
+                <form action="/dashboard/modifier-abonnement/<%= abonnement._id %>" method="POST">
+                    <label for="name">Nom de l'abonnement:</label>
+                    <input type="text" id="name" name="name" value="<%= abonnement.name %>" required>
+  
+                    <label for="price">Prix:</label>
+                    <input type="number" id="price" name="price" value="<%= abonnement.price %>" required>
+  
+                    <label for="duration">Durée (en mois):</label>
+                    <input type="number" id="duration" name="duration" value="<%= abonnement.duration %>" required>
+  
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required><%= abonnement.description %></textarea>
+  
+                    <button type="submit" class="btn">Mettre à jour</button>
+                </form>
+
+                <form action="/dashboard/supprimer-abonnement/<%= abonnement._id %>" method="POST">
+                    <button type="submit" class="btn btn-danger">Supprimer l'Abonnement</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

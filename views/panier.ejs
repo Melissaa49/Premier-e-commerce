@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récapitulatif du Panier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+    
+      .cart-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 20px auto;
+        background-color: #faf4ed; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+    
+      .left-section, .right-section {
+        flex: 1;
+        padding: 20px;
+      }
+    
+      .left-section {
+        border-right: 1px solid #ddd; 
+      }
+    
+      .cart-item {
+        margin-bottom: 15px;
+      }
+    
+      .item-name {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 5px;
+      }
+    
+      .quantity-control {
+        display: flex;
+        align-items: center;
+      }
+    
+      .quantity-control button {
+        padding: 5px 15px;
+        margin: 0 10px;
+        background-color: #e5e5e5;
+        border: none;
+        cursor: pointer;
+      }
+    
+      .total-price {
+        text-align: right;
+        font-size: 1.2rem;
+        color: #333;
+        margin-top: 10px;
+      }
+    
+      .right-section {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .customer-form {
+        flex: 1;
+      }
+    
+      .customer-form input, .customer-form select, .customer-form button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+      }
+    
+      .customer-form button {
+        background-color: #333;
+        color: white;
+        border: none;
+      }
+    
+      .back-home {
+        text-align: center;
+        display: block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        margin: 20px auto;
+        width: fit-content;
+      }
+    
+    </style>
+  </head>
+<body>
+
+<div class="cart-container">
+  <div class="left-section">
+    <div class="cart-item">
+      <div class="item-name">Nom de l'article</div>
+      <div class="quantity-control">
+        <button onclick="updateQuantity(-1)">-</button>
+        <div id="quantity">1</div>
+        <button onclick="updateQuantity(1)">+</button>
+      </div>
+      <div class="total-price">Prix total: <span id="total">19,90 €</span></div>
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="customer-form">
+      <h2>Adresse de livraison</h2>
+      <form id="address-form">
+        <input type="text" placeholder="Nom complet" required>
+        <input type="text" placeholder="Adresse" required>
+        <input type="text" placeholder="Ville" required>
+        <input type="text" placeholder="Code postal" required>
+        <select name="delivery" required>
+          <option value="colissimo">Colissimo</option>
+        </select>
+        <button type="submit">Confirmer la commande</button>
+      </form>
+    </div>
+  </div>
+</div>
+<a href="/dashboard/product-user" class="back-home">Retour aux produits</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+</body>
+</html>

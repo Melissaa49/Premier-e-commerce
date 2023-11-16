@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commandes</title>
+</head>
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Client</th>
+      <th>Date</th>
+      <th>Produits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% orders.forEach((order) => { %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.clientName %></td>
+      <td><%= order.date %></td>
+      <td><%= order.products.join(", ") %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .user-info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f7f2;
+            border-radius: 10px;
+        }
+
+        .user-info h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .user-info p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e8c38d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #d2ac73;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Mon Profil</h1>
+        <div class="user-info">
+            <h2>Informations Utilisateur</h2>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            
+            <a href="/edit-profile" class="btn">Modifier Profil</a>
+        </div>
+        <div class="order-history">
+            <h2>Historique des Commandes</h2>
+            
+        </div>
+        <div class="subscriptions">
+            <h2>Abonnements</h2>
+           
+        </div>
+    </div>
+    <a href="/profile/deconnexion" id="deconnexion" class="button">Déconnexion</a>
+</body>
+</html>

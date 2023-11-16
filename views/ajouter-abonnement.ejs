@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter un Abonnement</title>
+  <link rel="stylesheet" href="/css/abonnement.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">Ajouter un Nouvel Abonnement</h1>
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Informations sur l'Abonnement</h2>
+      </div>
+      <div class="card-body">
+        <!-- Début du formulaire -->
+        <form action="/dashboard/ajouter-abonnement" method="post">
+          <input type="text" name="name" placeholder="Nom de l'abonnement" required>
+          <textarea name="description" placeholder="Description" required></textarea>
+          <input type="number" name="price" placeholder="Prix" required>
+          <input type="number" name="duration" placeholder="Durée en mois" required>
+
+          <button type="submit">Ajouter l'abonnement</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

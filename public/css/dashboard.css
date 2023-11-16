@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FAF3E0;
+    color: #5D5A6D;
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #DDBEA9;
+    overflow: auto;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: none;
+    color: #5D5A6D;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #B0A295;
+    transition: background-color 0.3s ease;
+}
+
+#sidebar button:hover {
+    background-color: #C9ADA1;
+}
+
+#content {
+    margin-left: 260px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background-color: #FFFFFF; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #B0A295;
+}
+
+th {
+    background-color: #DDBEA9;
+    color: #5D5A6D;
+}
+
+.card {
+    background-color: #EAE4E1;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+button, .button-link {
+    background-color: #8E9AAF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button-link:hover {
+    background-color: #7D89A0;
+}
+
+.button-link {
+    text-decoration: none; 
+    display: inline-block; 
+    margin-bottom: 10px; 
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #content {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abonnement Nailbox</title>
+    <link rel="stylesheet" href="css/abonnement-ejs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header>  
+   <div class="banner">
+        <p class="banner-text">-20% sur votre premier coffret</p>
+    </div>
+   
+<div class="container">
+    
+    <nav>
+        <i id="close" class="fa-solid fa-xmark" style="color: #050505;"></i>
+        <div class='titre-top'>Nailsbox</div>
+        <ul>
+
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/dashboard/product-user">Produits</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/abonnement">Abonnement</a></li>
+        </ul>
+    </nav>
+    
+     <div class="top-menu">
+                <i id="burger" class="fa-solid fa-bars fa-2x burger" style="color: #000000;"></i>
+
+    </div>
+</header>
+
+<section class="parallax-section">
+    <div class="parallax-content">
+        <h2>Des ongles de rêve en un instant !</h2>
+        <p>Soyez prête pour toutes les occasions avec nos presses sur ongles polyvalents, adaptés à toutes les tenues et tous les styles.</p>
+        <button>S'abonner</button>
+    </div>
+</section>
+
+<section class="cards-section">
+    <div class="card">
+        <div class="card-title">Small size</div>
+        <img src="../images/img4.jpg" alt="Small size nails" class="card-image">
+        <div class="card-price">19,90 €</div>
+        <ul class="card-list">
+            <li>Un coffret press on nails.</li>
+            <li>Des accessoires pour la pose.</li>
+            <li>Des surprises dans chaque coffret</li>
+        </ul>
+        <button class="card-button">CHOISIR</button>
+    </div>
+    <div class="card">
+        <div class="card-title">Medium size</div>
+        <img src="../images/img2.jpg" alt="Medium size nails" class="card-image">
+        <div class="card-price">29,90 €</div>
+        <ul class="card-list">
+            <li>Deux coffrets press on nails.</li>
+            <li>Des accessoires pour la pose.</li>
+            <li>Des surprises dans chaque coffret</li>
+        </ul>
+        <button class="card-button">CHOISIR</button>
+    </div>
+    <div class="card">
+        <div class="card-title">Large size</div>
+        <img src="../images/img3.jpg" alt="Large size nails" class="card-image">
+        <div class="card-price">49,90 €</div>
+        <ul class="card-list">
+            <li>Un coffret Nails art DIY.</li>
+            <li>Des accessoires pour le DIY.</li>
+            <li>Des surprises dans chaque coffret</li>
+        </ul>
+        <button class="card-button">CHOISIR</button>
+    </div>
+</section>
+
+
+  <h1 class="title">Comment recevoir mon coffret?</h1>
+
+<div class="container">
+  <div class="step">
+    <img src="../images/icons-4.png" alt="Choisissez votre coffret">
+    <div class="step-text">
+      <p>1- Choisissez votre coffret</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <img src="../images/icons-3.png" alt="Nous préparons votre coffret">
+    <div class="step-text">
+      <p>2- Nous préparons votre coffret</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <img src="../images/user-1.jpg" alt="Partager vos Nails art">
+    <div class="step-text">
+      <p>3- Partager vos Nails art</p>
+    </div>
+  </div>
+</div>
+
+<div class="testimonials-container">
+  <div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <h3>"Génial!"</h3>
+    <p>Je suis tellement heureuse d'avoir découvert NailsBox ! C'est difficile de trouver le temps de me rendre dans un salon de manucure pour obtenir des ongles parfaits. Mais avec NailsBox, j'ai trouvé la solution idéale.</p>
+    <div class="author">Cathia.</div>
+  </div>
+
+  <div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <h3>"Super concept"</h3>
+    <p>Les press-on nails de NailsBox sont incroyables. J'ai été impressionnée par la variété des designs et des couleurs disponibles. Chaque mois, je suis surprise et excitée de découvrir les nouvelles créations qui arrivent dans ma box!</p>
+    <div class="author">Nina.</div>
+  </div>
+
+  <div class="testimonial">
+    <div class="stars">★★★★★</div>
+    <h3>"Parfait!"</h3>
+    <p>Je n'ai plus à m'inquiéter de prendre rendez-vous ou de me déplacer pour obtenir des ongles magnifiques. J'ai reçu de nombreux compliments et personne ne peut croire qu'ils ne sont pas faits en salon</p>
+    <div class="author">Layla.</div>
+  </div>
+</div>
+
+  <div class="faq-container">
+    <h1 class="faq-title">Vous avez des questions?</h1>
+    
+    <div class="faq">
+        <div class="faq-question" onclick="toggleFaqAnswer(this)">
+            <span class="faq-icon">+</span>
+            Puis-je offrir NailsBox en cadeau ?
+        </div>
+        <div class="faq-answer">
+            Bien sûr! NailsBox fait un cadeau merveilleux pour les passionnées de nail art. Lorsque vous pouvez vous abonnez, vous indiquer que c'est un cadeau et sélectionner la durée.
+        </div>
+    </div>
+        <div class="faq">
+        <div class="faq-question" onclick="toggleFaqAnswer(this)">
+            <span class="faq-icon">+</span>
+            Puis-je offrir NailsBox en cadeau ?
+        </div>
+        <div class="faq-answer">
+            Bien sûr! NailsBox fait un cadeau merveilleux pour les passionnées de nail art. Lorsque vous pouvez vous abonnez, vous indiquer que c'est un cadeau et sélectionner la durée.
+        </div>
+    </div>
+        <div class="faq">
+        <div class="faq-question" onclick="toggleFaqAnswer(this)">
+            <span class="faq-icon">+</span>
+            Puis-je offrir NailsBox en cadeau ?
+        </div>
+        <div class="faq-answer">
+            Bien sûr! NailsBox fait un cadeau merveilleux pour les passionnées de nail art. Lorsque vous pouvez vous abonnez, vous indiquer que c'est un cadeau et sélectionner la durée.
+        </div>
+    </div>
+</div>
+<div class="features-container">
+    <div class="feature-item">
+        <img src="../images/product-2.jpg" alt="Paiement sécurisé">
+        <p>Paiement sécurisé</p>
+    </div>
+    <div class="feature-item">
+        <img src="../images/product-1.jpg" alt="Qualité prix">
+        <p>Qualité prix</p>
+    </div>
+    <div class="feature-item">
+        <img src="../images/user-3.jpg" alt="100% Satisfait">
+        <p>100% Satisfait</p>
+    </div>
+    <div class="feature-item">
+        <img src="../images/user-2.jpg" alt="Recommandez">
+        <p>Recommandez</p>
+    </div>
+</div>
+<div class="video-container">
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/_o4y3LO_Xhw" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+<footer class="footer">
+    <div class="footer-links">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/abonnement">Abonnement</a></li>
+            <li><a href="/dashboard/product-user">Produits</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="legal-links">
+        <ul>
+            <li><a href="/politique-confidentialite">Politique de Confidentialité</a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; 2023 ALFONSI MELISSA. Tous droits réservés.
+    </div>
+</footer>
+
+<script src="./js/abonnement.js" defer></script>
+</body>
+</html>

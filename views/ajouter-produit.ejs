@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un produit</title>
+    <link rel="stylesheet" href="css/add-product.css">
+</head>
+<body>
+    <div class="product-card">
+        <form id="add-product-form" enctype="multipart/form-data" action="/dashboard/ajouter-produit" method="POST">
+            <div class="left-section">
+                <input type="text" name="name" placeholder="Nom du produit"> 
+                <input type="text" name="description" placeholder="Description">
+                <input type="number" name="price" placeholder="Prix"> 
+            </div>
+            <div class="right-section">
+                <div class="image-container">
+                    <img id="product-image-preview" src="#" alt="Preview">
+                </div>
+                <input type="file" id="product-image-upload" name="productImage">
+            </div>
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+</body>
+</html>
+

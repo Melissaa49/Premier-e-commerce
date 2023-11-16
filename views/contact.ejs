@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Nailbox</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header>  
+   <div class="banner">
+        <p class="banner-text">-20% sur votre premier coffret</p>
+    </div>
+<div class="container">
+    <nav>
+        <i id="close" class="fa-solid fa-xmark" style="color: #050505;"></i>
+        <div class='titre-top'>Nailsbox</div>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/dashboard/product-user">Produits</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/abonnement">Abonnement</a></li>
+        </ul>
+    </nav>
+     <div class="top-menu">
+                <i id="burger" class="fa-solid fa-bars fa-2x burger" style="color: #000000;"></i>
+    </div>
+</header>
+<section class="parallax-section">
+    <div class="parallax-content">
+        <h2>Des ongles de rêve en un instant !</h2>
+        <p>Soyez prête pour toutes les occasions avec nos presses sur ongles polyvalents, adaptés à toutes les tenues et tous les styles.</p>
+        <button>S'abonner</button>
+    </div>
+</section>
+
+
+<div class="section">
+  <img src="./images/contactphoto.jpg" alt="Description Image Gauche">
+  <div class="text">
+    <h1>Qui sommes-nous ?</h1>
+    <p>Bienvenue chez NailsBox, votre destination incontournable pour une manucure parfaite à domicile. Fondée par des passionnés de beauté et d'innovation, NailsBox se consacre à apporter une touche de glamour et de sophistication à votre quotidien.</p>
+  </div>
+</div>
+
+<div class="section reversed">
+  <img src="./images/img3.jpg" alt="Description Image Droite">
+  <div class="text">
+    <h2>Les engagements NailsBox</h2>
+    <ul style="list-style: none;">
+
+      <li>Chez NailsBox, nous croyons que chaque personne mérite de se sentir belle et confiante, sans avoir à sacrifier son temps précieux.</li>
+      <li> Notre mission est de fournir des solutions de manucure rapides, accessibles et de haute qualité qui s'adaptent à votre style de vie dynamique.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="form-container">
+  <div class="form-header">
+    <h2>Vous avez une question ?</h2>
+    <p>Nous sommes ravis de pouvoir répondre.</p>
+  </div>
+  <form action="/contact" method="POST">
+    <input type="text" id="name" name="name" placeholder="Écrivez votre Nom">
+    <input type="email" id="email" name="email" placeholder="Email">
+    <textarea id="message" name="message" placeholder="Écrivez un message"></textarea>
+    <button type="submit">ENVOYER</button>
+  </form>
+</div>
+<footer class="footer">
+    <div class="footer-links">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/abonnement">Abonnement</a></li>
+            <li><a href="/dashboard/product-user">Produits</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="legal-links">
+        <ul>
+            <li><a href="/politique-confidentialite">Politique de Confidentialité</a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; 2023 ALFONSI MELISSA. Tous droits réservés.
+    </div>
+</footer>
+
+<script src="./js/abonnement.js" defer></script>
+
+</body>
+</html>

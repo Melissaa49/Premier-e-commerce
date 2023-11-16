@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <section class="container forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>Connexion</header>
+                <form action="/login" method="POST">
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input" name="email">
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Mot de passe" class="password" name="password">
+                        <i class='fas fa-eye eye-icon'></i>
+                    </div>
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">Mot de passe oublié ?</a>
+                    </div>
+                    <div class="field button-field">
+                        <button type="submit">Connexion</button>
+                    </div>
+                </form>
+                <div class="form-link">
+                    <span>Vous n'avez pas de compte ? <a href="/signup" class="link signup-link">Inscription</a></span>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class='fab fa-facebook-f facebook-icon'></i> 
+                    <span>Connexion avec Facebook</span>
+                </a>
+            </div>
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <i class='fab fa-google google-icon'></i>
+                    <span>Connexion avec Google</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Abonnements</title>
+    <link rel="stylesheet" href="css/abonnement.css">
+    <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .abonnements-container {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px; 
+      overflow-x: auto;
+      padding-bottom: 20px; 
+    }
+    .abonnement-card {
+      flex: 0 0 auto; 
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 20px;
+      min-width: 250px; 
+    }
+    .abonnement-title {
+      font-size: 1.5em;
+      color: #333;
+    }
+    .abonnement-price {
+      font-size: 1.2em;
+      color: #8B4513; 
+    }
+    .abonnement-duration,
+    .abonnement-description {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+    
+   <h1>Liste des Abonnements</h1>
+
+    <% abonnements.forEach(abonnement => { %>
+  <div class="abonnement-card">
+    <h2 class="abonnement-title"><%= abonnement.name %></h2>
+    <p class="abonnement-price"><%= abonnement.price %> €</p>
+    <p class="abonnement-duration">Durée: <%= abonnement.duration %> jours</p>
+    <p class="abonnement-description"><%= abonnement.description %></p> 
+    
+    <form action="/dashboard/modifier-abonnement/<%= abonnement._id %>" method="get">
+      <button type="submit" class="btn">Modifier</button>
+    </form>
+  
+    <form action="/dashboard/supprimer-abonnement/<%= abonnement._id %>" method="post">
+      <button type="submit" class="btn btn-danger">Supprimer</button>
+    </form>
+  </div>
+  
+<% }); %>
+    </div>
+    </div>
+</body>
+</html>
