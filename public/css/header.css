@@ -1,0 +1,116 @@
+.banner {
+  background-color: rgb(196, 163, 144);
+  text-align: center;
+  padding: 1rem 0;
+}
+.banner-text {
+  color: white;
+  font-size: 0.813rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  width: 50%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  z-index: 5;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
+nav.active {
+  visibility: visible;
+}
+
+li {
+  font-size: 1rem;
+  padding: 0.938rem 1.25rem;
+}
+
+a {
+  color: rgb(1, 1, 1);
+}
+a:hover {
+  color: #050505;
+}
+
+.titre-top,
+.icons a {
+  color: rgb(1, 1, 1);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+#burger, #close {
+  cursor: pointer;
+}
+
+#close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  transform: scale(2);
+  width: 18px;
+  height: 18px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header {
+  background-color: white;
+  height: 45%;
+}
+header .top-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 5% auto;
+}
+header .top-menu input {
+  width: 60%;
+  height: 40px;
+  border-radius: 25px;
+  opacity: 0;
+  transition: 0.1s;
+  border: none;
+}
+header .top-menu input.active {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .burger-menu {
+    display: none;
+  }
+  .desktop-menu {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+  .parallax-content {
+    padding: 10px;
+  }
+  .parallax-content h2 {
+    font-size: 24px;
+  }
+  .parallax-content p {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

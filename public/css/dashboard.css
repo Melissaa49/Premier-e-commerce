@@ -105,6 +105,208 @@ h1 {
     margin-bottom: 20px;
 }
 
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribue l'espace autour des éléments */
+    gap: 10px; /* Espacement entre les cartes */
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espace en bas de chaque carte */
+    padding: 10px;
+    text-align: center;
+    width: 30%; /* Largeur de chaque carte */
+    /* Ajustez la hauteur si nécessaire pour garder les cartes de même taille */
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: #f8f0e3; /* Couleur beige clair */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #d3b88c; /* Couleur beige doré */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif; /* Police élégante */
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fafafa; /* Couleur de fond légèrement beige */
+}
+
+.card-body form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #a88b6f; /* Couleur beige plus foncé */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9a7d59; /* Un peu plus foncé lors du survol */
+}
+
+
+.product-card {
+    background-color: #f8f0e3; /* Couleur beige clair */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.product-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-card .left-section,
+.product-card .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    border: none;
+}
+
+button {
+    background-color: #a88b6f; /* Couleur beige foncé */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9a7d59; /* Un peu plus foncé lors du survol */
+}
+
+
+.abonnement-card {
+    background-color: #fff8f0; /* Fond clair */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px; /* Espacement entre les cartes */
+    text-align: center;
+}
+
+.abonnement-title {
+    color: #886c52; /* Couleur du titre */
+    margin-bottom: 10px;
+}
+
+.abonnement-price {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #6e503b; /* Couleur du prix */
+}
+
+.abonnement-duration {
+    margin-bottom: 15px;
+    color: #5d5a6d;
+}
+
+.abonnement-description {
+    margin-bottom: 20px;
+    color: #8b5f4d;
+}
+
+.btn {
+    background-color: #a88b6f; /* Couleur beige foncé */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Bouton s'étend sur toute la largeur */
+    margin-bottom: 10px; /* Espace entre les boutons */
+}
+
+.btn:hover {
+    background-color: #9a7d59; /* Changement de couleur au survol */
+}
+
+.btn-danger {
+    background-color: #c44; /* Couleur pour les actions dangereuses */
+}
+
+.btn-danger:hover {
+    background-color: #b33; /* Changement de couleur au survol pour le bouton danger */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
     #sidebar {
         width: 100%;
@@ -114,5 +316,16 @@ h1 {
 
     #content {
         margin-left: 0;
+    } 
+    
+    .product-card {
+        flex: 0 1 calc(50% - 20px); 
+        max-width: calc(50% - 20px);
     }
+       .container {
+        margin: 20px;
+    }
+
 }
+
+   

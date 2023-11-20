@@ -86,7 +86,9 @@ exports.postUpdateProduct = async (req, res) => {
   try {
     const productId = req.params.productId;
     const { name, description, price } = req.body;
-    await productModel.findByIdAndUpdate(productId, { name, description, price });
+    const imageUrl = req.file ? '/uploads/' + req.file.filename : undefined;
+    
+    await productModel.findByIdAndUpdate(productId, { name, description, price, ...(imageUrl && { imageUrl }) });
     res.redirect('/dashboard/liste-de-produits');
   } catch (error) {
     console.error(error);
@@ -94,17 +96,24 @@ exports.postUpdateProduct = async (req, res) => {
   }
 };
 
+
 // Fonction pour supprimer un produit
 exports.postDeleteProduct = async (req, res) => {
-  try {
-    const productId = req.params.productId;
-    await productModel.findByIdAndRemove(productId);
-    res.redirect('/dashboard/liste-de-produits');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Erreur lors de la suppression du produit');
-  }
+    try {
+        const productId = req.params.productId;
+        const result = await productModel.findByIdAndDelete(productId);
+        if (result) {
+            res.redirect('/dashboard/liste-de-produits');
+        } else {
+            res.status(404).send('Produit non trouvé');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erreur lors de la suppression du produit');
+    }
 };
+
+    
 
 exports.getProductUser = async (req, res) => {
   try {
@@ -176,15 +185,16 @@ exports.postUpdateSubscription = async (req, res) => {
 
 // Fonction pour supprimer un abonnement
 exports.postDeleteSubscription = async (req, res) => {
-  try {
-    const subscriptionId = req.params.subscriptionId;
-    await Subscription.findByIdAndRemove(subscriptionId);
-    res.redirect('/dashboard/liste-abonnements');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Erreur lors de la suppression de l\'abonnement');
-  }
+    try {
+        const subscriptionId = req.params.subscriptionId;
+        await Subscription.findByIdAndDelete(subscriptionId);
+        res.redirect('/dashboard/liste-abonnements');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erreur lors de la suppression de l\'abonnement');
+    }
 };
+
 // Fonction pour gérer la déconnexion
 exports.logout = (req, res) => {
     req.session.destroy((err) => {

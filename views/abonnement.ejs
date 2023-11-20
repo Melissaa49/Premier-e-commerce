@@ -5,46 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abonnement Nailbox</title>
     <link rel="stylesheet" href="css/abonnement-ejs.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<header>  
-   <div class="banner">
-        <p class="banner-text">-20% sur votre premier coffret</p>
-    </div>
-   
-<div class="container">
-    
-    <nav>
-        <i id="close" class="fa-solid fa-xmark" style="color: #050505;"></i>
-        <div class='titre-top'>Nailsbox</div>
-        <ul>
-
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/dashboard/product-user">Produits</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/abonnement">Abonnement</a></li>
-        </ul>
-    </nav>
-    
-     <div class="top-menu">
-                <i id="burger" class="fa-solid fa-bars fa-2x burger" style="color: #000000;"></i>
-
-    </div>
-</header>
-
-<section class="parallax-section">
-    <div class="parallax-content">
-        <h2>Des ongles de rêve en un instant !</h2>
-        <p>Soyez prête pour toutes les occasions avec nos presses sur ongles polyvalents, adaptés à toutes les tenues et tous les styles.</p>
-        <button>S'abonner</button>
-    </div>
-</section>
-
-<section class="cards-section">
+<%- include('partials/header') %>
+<section class="cards-section"aria-label="Choix d'abonnement">
     <div class="card">
         <div class="card-title">Small size</div>
         <img src="../images/img4.jpg" alt="Small size nails" class="card-image">
@@ -80,9 +50,8 @@
     </div>
 </section>
 
-
-  <h1 class="title">Comment recevoir mon coffret?</h1>
-
+ <section aria-label="Processus d'abonnement">
+        <h1 class="title">Comment recevoir mon coffret?</h1>
 <div class="container">
   <div class="step">
     <img src="../images/icons-4.png" alt="Choisissez votre coffret">
@@ -105,8 +74,9 @@
     </div>
   </div>
 </div>
+</section>
 
-<div class="testimonials-container">
+<section class="testimonials-container"aria-label="Témoignages">
   <div class="testimonial">
     <div class="stars">★★★★★</div>
     <h3>"Génial!"</h3>
@@ -127,11 +97,10 @@
     <p>Je n'ai plus à m'inquiéter de prendre rendez-vous ou de me déplacer pour obtenir des ongles magnifiques. J'ai reçu de nombreux compliments et personne ne peut croire qu'ils ne sont pas faits en salon</p>
     <div class="author">Layla.</div>
   </div>
-</div>
+</section>
 
-  <div class="faq-container">
-    <h1 class="faq-title">Vous avez des questions?</h1>
-    
+ <section class="faq-container" aria-label="FAQ">
+        <h1 class="faq-title">Vous avez des questions?</h1>
     <div class="faq">
         <div class="faq-question" onclick="toggleFaqAnswer(this)">
             <span class="faq-icon">+</span>
@@ -159,8 +128,8 @@
             Bien sûr! NailsBox fait un cadeau merveilleux pour les passionnées de nail art. Lorsque vous pouvez vous abonnez, vous indiquer que c'est un cadeau et sélectionner la durée.
         </div>
     </div>
-</div>
-<div class="features-container">
+</section>
+<section class="features-container">
     <div class="feature-item">
         <img src="../images/product-2.jpg" alt="Paiement sécurisé">
         <p>Paiement sécurisé</p>
@@ -177,8 +146,8 @@
         <img src="../images/user-2.jpg" alt="Recommandez">
         <p>Recommandez</p>
     </div>
-</div>
-<div class="video-container">
+</section>
+<section class="video-container" aria-label="Vidéo explicative">
     <iframe 
         width="560" 
         height="315" 
@@ -187,25 +156,8 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
     </iframe>
-</div>
-<footer class="footer">
-    <div class="footer-links">
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/abonnement">Abonnement</a></li>
-            <li><a href="/dashboard/product-user">Produits</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
-    <div class="legal-links">
-        <ul>
-            <li><a href="/politique-confidentialite">Politique de Confidentialité</a></li>
-        </ul>
-    </div>
-    <div class="copyright">
-        &copy; 2023 ALFONSI MELISSA. Tous droits réservés.
-    </div>
-</footer>
+</section>
+<%- include('partials/footer') %>
 
 <script src="./js/abonnement.js" defer></script>
 </body>

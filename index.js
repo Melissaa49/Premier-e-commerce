@@ -9,7 +9,11 @@ const contactRoutes = require('./routes/contactRoutes');
 const profileController = require('./controllers/profileController');
 const policyController = require('./controllers/policyController');
 const { body, validationResult } = require('express-validator');
+const MongoStore = require('connect-mongo');
 const bcrypt = require('bcrypt');
+const methodOverride = require('method-override');
+
+
 
 
 
@@ -26,33 +30,31 @@ app.set('views', __dirname + '/views');
 
 // Middlewares
 app.use(cookieParser());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use((req, res, next) => {
   res.setHeader('Content-Security-Policy', "script-src 'self';");
   next();
 });
+app.use(methodOverride('_method'));
 
+// Configuration de la session avec MongoDB
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
+  store: MongoStore.create({ 
+    mongoUrl: process.env.MONGODB_URI 
+  }),
   cookie: {
-    secure: false,
+    secure: false, // à true si vous êtes derrière un proxy et utilisez HTTPS
     httpOnly: true,
-    maxAge: 3600000,
+    maxAge: 3600000 // 1 heure
   }
 }));
 
-app.use((req, res, next) => {
-  if (!req.cookies.consent) {
-    res.cookie('consent', 'false', { maxAge: 3600000 });
-  }
-  next();
-});
-
 // Routes
-app.use(express.json());
 app.use('/dashboard', dashboardRoutes);
 app.use('/contact', contactRoutes);
 

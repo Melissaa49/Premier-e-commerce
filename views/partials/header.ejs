@@ -1,0 +1,36 @@
+    <header>  
+        <div class="banner">
+            <p class="banner-text">-20% sur votre premier coffret</p>
+        </div>
+        <div class="container">
+            <nav>
+                <i id="close" class="fa-solid fa-xmark" style="color: #050505;"></i>
+                <div class='titre-top'>Nailsbox</div>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/dashboard/product-user">Produits</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/abonnement">Abonnement</a></li>
+                </ul>
+            </nav>
+            <div class="top-menu">
+                <i id="burger" class="fa-solid fa-bars fa-2x burger" style="color: #000000;"></i>
+                <div class="icons">
+                    <a href="/panier" class="fas fa-shopping-cart"></a>
+                    <a href="/signup" class="fas fa-user" id="login-icon"></a> 
+                    <% if (typeof userId !== 'undefined' && userId) { %>
+                        <a href="/profile" class="btn">Mon Compte</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="parallax-section" aria-label="Introduction">
+            <div class="parallax-content">
+                <h2>Des ongles de rêve en un instant !</h2>
+                <p>Soyez prête pour toutes les occasions avec nos presses sur ongles polyvalents, adaptés à toutes les tenues et tous les styles.</p>
+                <a href="/abonnement" class="button-link">S'abonner</a>
+            </div>
+        </section>
+    </main>

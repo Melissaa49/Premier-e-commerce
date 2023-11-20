@@ -1,210 +1,19 @@
-
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Playfair Display', serif;
-    text-decoration:none;
-    list-style:none;
+    text-decoration: none;
+    list-style: none;
 }
+
 body {
     display: block;
     margin: 0;
 }
-.banner {
-    background-color: rgb(196, 163, 144);
-    text-align: center;
-    padding: 10px 0;
-}
 
 
-.banner-text {
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
-    margin: 0; 
-}
-
-.container{
-    display: flex;
-    flex-direction: column;
-
-  }
-
-/*NAV*/
-nav{
-    width:50%;
-    top:0;
-    left:0;
-    height:100%;
-    position:absolute;
-    background-color:rgb(255, 255, 255);
-    z-index:5;
-    visibility:hidden;
-    transition:.3s ease-in-out;
-
-
-}
-nav.active{
-visibility: visible;
-
-}
-li{
-    font-size: 16px;
-    padding: 15px 20px;
-}
-a{
-    color:rgb(1, 1, 1);
-
-}
-.titre-top{
-    color:rgb(1, 1, 1);
-    padding:20% 15% 10% 15%;
-    font-size: 24px;
-}
-#burger{
- width: 10%;
- cursor: pointer;
-}
-#close{
-    position:absolute;
-    right:20px;
-    top:20px;
-    color:rgb(255, 255, 255);
-    transform:scale(2);
-    width:18px;
-    height:18px;
-    cursor:pointer;
-}
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.icons a {
-    color: rgb(1, 1, 1);
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.icons a:hover {
-    color: #050505; 
-}
-
-
-
-/*HEADER*/
-
-header{
-    background-color: rgb(255, 255, 255) ;
-    height:45%;
-
-
-
-}
-
-.top-menu{
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    width: 80%;
-    margin: 5% auto;
-
-}
-
-.top-menu input{
-    width:60%;
-    height:40px;
-    border-radius:25px;
-    opacity: 0;
-    transition: .1s;
-    border: none;
-
-}
-.top-menu input.active{
-    opacity: 1;
-}
-h1{
-    color:white;
-    font-weight: 600;
-    font-size: 28px;
-    margin: 5% auto;
-    padding:0 5%;
-}
-
-.cart-count {
-  position: absolute;
-  top: -10px; 
-  right: -10px; 
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 5px;
-  font-size: 0.8rem;
-}
-/*Styles pour la section de parallax*/
-.parallax-section {
-    background-image: url('../images/img-bgc1.png'); 
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    height: 100vh; 
-
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    position: relative;
-}
-
-
-.parallax-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-}
-
-
-.parallax-content {
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    margin-bottom: 10px;
-    z-index: 1; 
-}
-
-
-.parallax-content h2, .parallax-content p {
-    color: white;
-    margin-bottom: 10px;
-}
-.parallax-content h2{
-    font-size: 52px;
-}
-.parallax-content p{
-    font-weight: 400;
-    font-size: 22px;
-    color: #ecf0f1;
-}
-
-
-.parallax-content button {
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-
+/*section dessous parallax*/
 .image-section {
     display: flex;
     flex-wrap: wrap;
@@ -262,12 +71,6 @@ h1{
     padding: 10px;
 }
 
-.text-container2 button {
-    font-size: 12px;
-    color: #fff;
-    background-color:rgba(201,166,146,0.44);
-    padding: 5px 50px;
-}
 
 
 .image-container2 {
@@ -368,14 +171,6 @@ h1{
     padding: 2px;
 }
 
-.card button {
-    background-color: rgb(201, 166, 146);
-    color: #ffffff;
-    font-size: 14px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
 
 
 /* Styles pour le conteneur de la section testimoniale*/
@@ -464,15 +259,7 @@ h1{
     margin-bottom: 10px;
 }
 
-.parallax-content2 button {
-    background-color: rgba(201,166,146,0.44);
-    color: #1b1a1a;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
+
 
 .footer {
     background-color: rgba(201, 166, 146, 0.44);
@@ -531,37 +318,8 @@ h1{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Styles pour le responsive */
 @media screen and (max-width: 768px) {
-    .parallax-content {
-        padding: 10px;
-    }
-
-    .parallax-content h2 {
-        font-size: 24px;
-    }
-
-    .parallax-content p {
-        font-size: 16px;
-    }
-
     .image-section {
         flex-direction: column; 
         align-items: center;

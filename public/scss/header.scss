@@ -1,0 +1,138 @@
+// Variables
+$primary-color: rgb(1, 1, 1);
+$banner-bg-color: rgb(196, 163, 144);
+$white-color: white;
+$banner-text-color: white;
+$button-hover-bg: #e0e0e0;
+$button-hover-color: #333;
+$parallax-overlay-color: rgba(0, 0, 0, 0.5);
+
+.banner {
+  background-color: $banner-bg-color;
+  text-align: center;
+  padding: 1rem 0;
+
+  &-text {
+    color: $banner-text-color;
+    font-size: 0.813rem;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  width: 50%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  background-color: $white-color;
+  z-index: 5;
+  visibility: hidden;
+  transition: .3s ease-in-out;
+
+  &.active {
+    visibility: visible;
+  }
+}
+
+li {
+  font-size: 1rem;
+  padding: 0.938rem 1.25rem;
+}
+
+a {
+  color: $primary-color;
+
+  &:hover {
+    color: #050505;
+  }
+}
+
+.titre-top,
+.icons a {
+  color: $primary-color;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+#burger, #close {
+  cursor: pointer;
+}
+
+#close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: $white-color;
+  transform: scale(2);
+  width: 18px;
+  height: 18px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header {
+  background-color: $white-color;
+  height: 45%;
+
+  .top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 5% auto;
+
+    input {
+      width: 60%;
+      height: 40px;
+      border-radius: 25px;
+      opacity: 0;
+      transition: .1s;
+      border: none;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.parallax-section {
+  // Styles pour la section de parallax
+}
+
+// Autres styles...
+
+// Media queries
+@media (min-width: 1024px) {
+  .burger-menu {
+    display: none; // Cacher le menu burger en desktop
+  }
+
+  .desktop-menu {
+    display: block; // Afficher le menu desktop
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .parallax-content {
+    padding: 10px;
+    h2 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}

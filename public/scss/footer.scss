@@ -1,0 +1,46 @@
+// Variables
+$footer-bg-color: rgba(201, 166, 146, 0.44);
+$text-color: #000;
+$link-hover-decoration: underline;
+
+.footer {
+  background-color: $footer-bg-color;
+  padding: 20px;
+  text-align: center;
+  color: $text-color;
+  height: 250px;
+  margin: 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .footer-links,
+  .legal-links {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: $link-hover-decoration;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: $text-color;
+  }
+}

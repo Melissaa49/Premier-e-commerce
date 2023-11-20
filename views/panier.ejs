@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Récapitulatif du Panier</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -97,6 +100,7 @@
     </style>
   </head>
 <body>
+<%- include('partials/header') %>
 
 <div class="cart-container">
   <div class="left-section">
@@ -127,6 +131,7 @@
   </div>
 </div>
 <a href="/dashboard/product-user" class="back-home">Retour aux produits</a>
+<%- include('partials/footer') %>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
 </body>
