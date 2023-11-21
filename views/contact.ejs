@@ -39,12 +39,20 @@
     <h2>Vous avez une question ?</h2>
     <p>Nous sommes ravis de pouvoir répondre.</p>
   </div>
-  <form action="/contact" method="POST">
-    <input type="text" id="name" name="name" placeholder="Écrivez votre Nom">
-    <input type="email" id="email" name="email" placeholder="Email">
-    <textarea id="message" name="message" placeholder="Écrivez un message"></textarea>
-    <a href class="submit">ENVOYER</a>
-  </form>
+<form id="contactForm" action="/contact" method="POST">
+  <input type="text" name="name" placeholder="Écrivez votre Nom" autocomplete="name" required>
+  <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" required>
+  <textarea id="message" name="message" placeholder="Écrivez un message"></textarea>
+  <button type="submit" class="submit">ENVOYER</button>
+</form>
+<div id="popupMessage" class="popup-overlay" style="display:none;">
+  <div class="popup-content">
+    <h2>Message Envoyé</h2>
+    <p>Votre message a été envoyé avec succès.</p>
+    <button id="closePopup">OK</button>
+  </div>
+</div>
+
 </section>
 <%- include('partials/footer') %>
 

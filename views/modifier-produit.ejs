@@ -9,8 +9,7 @@
 <body>
     <div class="product-card">
         <h1>Modifier le produit</h1>
-<form method="POST" action="/dashboard/modifier-produit/<%= product._id %>">
-<input type="hidden" name="_method" value="PUT">            
+<form method="POST" action="/dashboard/modifier-produit/<%= product._id %>?_method=PUT" enctype="multipart/form-data">
 <label for="name">Nom du produit</label>
             <input type="text" id="name" name="name" value="<%= product.name %>" required>
             

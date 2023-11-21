@@ -9,25 +9,30 @@
 <body>
     
    <h1>Liste des Abonnements</h1>
-
-    <% abonnements.forEach(abonnement => { %>
+   
+<div class="abonnement-container">
+<% abonnements.forEach(abonnement => { %>
   <div class="abonnement-card">
-    <h2 class="abonnement-title"><%= abonnement.name %></h2>
-    <p class="abonnement-price"><%= abonnement.price %> €</p>
-    <p class="abonnement-duration">Durée: <%= abonnement.duration %> jours</p>
+    <h2 class="abonnement-title"><%= abonnement.nom %></h2>
+
+    <% if (abonnement.imageUrl) { %>
+      <img src="<%= abonnement.imageUrl %>" alt="Image de l'abonnement" style="max-width: 200px; height: auto;">
+    <% } %>
+
+    <p class="abonnement-price"><%= abonnement.prix %> €</p>
+    <p class="abonnement-duration">Durée: <%= abonnement.durée %> mois</p>
     <p class="abonnement-description"><%= abonnement.description %></p> 
     
-    <form action="/dashboard/modifier-abonnement/<%= abonnement._id %>" method="get">
+    <form method="POST" action="/dashboard/modifier-abonnement/<%= abonnement._id %>?_method=PUT" enctype="multipart/form-data">
       <button type="submit" class="btn">Modifier</button>
     </form>
   
-    <form action="/dashboard/supprimer-abonnement/<%= abonnement._id %>" method="post">
-      <button type="submit" class="btn btn-danger">Supprimer</button>
+    <form method="POST" action="/dashboard/supprimer-abonnement/<%= abonnement._id %>?_method=DELETE">
+        <button type="submit">Supprimer</button>
     </form>
   </div>
   
 <% }); %>
-    </div>
     </div>
 </body>
 </html>

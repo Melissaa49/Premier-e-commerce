@@ -234,63 +234,32 @@ button:hover {
     background-color: #9a7d59; /* Un peu plus foncé lors du survol */
 }
 
+.abonnement-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacement entre les cartes */
+}
 
 .abonnement-card {
-    background-color: #fff8f0; /* Fond clair */
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px; /* Espacement entre les cartes */
-    text-align: center;
+  flex-basis: calc(33.333% - 20px); /* Trois cartes par ligne avec un peu d'espacement */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet en relief */
+  padding: 15px;
+  background: white;
+  border-radius: 5px; /* Coins arrondis */
 }
 
-.abonnement-title {
-    color: #886c52; /* Couleur du titre */
-    margin-bottom: 10px;
+.abonnement-card img {
+  max-width: 100%; /* Largeur maximale de l'image */
+  height: auto; /* Hauteur automatique pour conserver le ratio */
+  display: block; /* Empêche l'espace sous l'image */
+  margin: 0 auto 10px; /* Centrer l'image avec une marge en bas */
 }
-
-.abonnement-price {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #6e503b; /* Couleur du prix */
+/* Pour gérer les marges sur petits écrans */
+@media (max-width: 600px) {
+  .abonnement-card {
+    width: 100%;
+  }
 }
-
-.abonnement-duration {
-    margin-bottom: 15px;
-    color: #5d5a6d;
-}
-
-.abonnement-description {
-    margin-bottom: 20px;
-    color: #8b5f4d;
-}
-
-.btn {
-    background-color: #a88b6f; /* Couleur beige foncé */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%; /* Bouton s'étend sur toute la largeur */
-    margin-bottom: 10px; /* Espace entre les boutons */
-}
-
-.btn:hover {
-    background-color: #9a7d59; /* Changement de couleur au survol */
-}
-
-.btn-danger {
-    background-color: #c44; /* Couleur pour les actions dangereuses */
-}
-
-.btn-danger:hover {
-    background-color: #b33; /* Changement de couleur au survol pour le bouton danger */
-}
-
-
-
 
 
 

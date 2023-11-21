@@ -4,7 +4,9 @@ const productModel = require('../models/productModel');
 const orderModel = require('../models/commandModel');
 const Subscription = require('../models/subscriptionModel');
 
-
+exports.dashboardMain = (req, res) => {
+  res.render('dashboard'); // Assurez-vous que ce fichier EJS existe
+};
 
 
 // Fonction pour afficher la liste des clients
@@ -82,37 +84,38 @@ exports.getEditProduct = async (req, res) => {
 };
 
 // Fonction pour mettre à jour un produit
-exports.postUpdateProduct = async (req, res) => {
-  try {
-    const productId = req.params.productId;
-    const { name, description, price } = req.body;
-    const imageUrl = req.file ? '/uploads/' + req.file.filename : undefined;
-    
-    await productModel.findByIdAndUpdate(productId, { name, description, price, ...(imageUrl && { imageUrl }) });
-    res.redirect('/dashboard/liste-de-produits');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Erreur lors de la mise à jour du produit');
-  }
+exports.putUpdateProduct = async (req, res) => {
+    try {
+        const productId = req.params.productId;
+        const { name, description, price } = req.body;
+        const imageUrl = req.file ? '/uploads/' + req.file.filename : req.body.existingImageUrl;
+
+        await productModel.findByIdAndUpdate(productId, {
+            name, 
+            description, 
+            price, 
+            imageUrl
+        });
+
+        res.redirect('/dashboard/liste-de-produits');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erreur lors de la mise à jour du produit');
+    }
 };
 
 
 // Fonction pour supprimer un produit
-exports.postDeleteProduct = async (req, res) => {
+exports.deleteProduct = async (req, res) => {
     try {
         const productId = req.params.productId;
-        const result = await productModel.findByIdAndDelete(productId);
-        if (result) {
-            res.redirect('/dashboard/liste-de-produits');
-        } else {
-            res.status(404).send('Produit non trouvé');
-        }
+        await productModel.findByIdAndDelete(productId);
+        res.redirect('/dashboard/liste-de-produits');
     } catch (error) {
         console.error(error);
         res.status(500).send('Erreur lors de la suppression du produit');
     }
 };
-
     
 
 exports.getProductUser = async (req, res) => {
@@ -144,8 +147,17 @@ exports.getAddSubscription = (req, res) => {
 // Fonction pour ajouter un nouvel abonnement
 exports.postAddSubscription = async (req, res) => {
   try {
-    const { name, description, price, duration } = req.body;
-    const newSubscription = new Subscription({ name, description, price, duration });
+    const { nom, prix, duree, description } = req.body;
+    const imageUrl = req.file ? '/uploads/' + req.file.filename : undefined;
+
+    const newSubscription = new Subscription({
+      nom,
+      prix,
+      duree,
+      description,
+      imageUrl
+    });
+
     await newSubscription.save();
     res.redirect('/dashboard/liste-abonnements');
   } catch (error) {
@@ -171,20 +183,29 @@ exports.getEditSubscription = async (req, res) => {
 };
 
 // Fonction pour mettre à jour un abonnement
-exports.postUpdateSubscription = async (req, res) => {
-  try {
-    const subscriptionId = req.params.subscriptionId;
-    const { name, description, price, duration } = req.body;
-    await Subscription.findByIdAndUpdate(subscriptionId, { name, description, price, duration });
-    res.redirect('/dashboard/liste-abonnements');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Erreur lors de la mise à jour de l\'abonnement');
-  }
+exports.putUpdateSubscription = async (req, res) => {
+    try {
+        const subscriptionId = req.params.subscriptionId;
+        const { nom, prix, duree, description } = req.body;
+        const imageUrl = req.file ? '/uploads/' + req.file.filename : req.body.existingImageUrl;
+
+        await Subscription.findByIdAndUpdate(subscriptionId, {
+            nom, 
+            prix, 
+            duree, 
+            description, 
+            imageUrl
+        });
+
+        res.redirect('/dashboard/liste-abonnements');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erreur lors de la mise à jour de l\'abonnement');
+    }
 };
 
 // Fonction pour supprimer un abonnement
-exports.postDeleteSubscription = async (req, res) => {
+exports.deleteSubscription = async (req, res) => {
     try {
         const subscriptionId = req.params.subscriptionId;
         await Subscription.findByIdAndDelete(subscriptionId);
@@ -194,6 +215,7 @@ exports.postDeleteSubscription = async (req, res) => {
         res.status(500).send('Erreur lors de la suppression de l\'abonnement');
     }
 };
+
 
 // Fonction pour gérer la déconnexion
 exports.logout = (req, res) => {

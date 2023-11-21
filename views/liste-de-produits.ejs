@@ -15,8 +15,10 @@
                 <h2><%= product.name %></h2>
                 <p>Prix : <%= product.price %> €</p>
                 <a href="/dashboard/modifier-produit/<%= product._id %>" class="button">Modifier</a>
-                <form action="/dashboard/supprimer-produit/<%= product._id %>" method="post">
-                    <button class="button" type="submit">Supprimer</button>
+                <form method="POST" action="/dashboard/supprimer-produit/<%= product._id %>?_method=DELETE">
+                    <button type="submit">Supprimer</button>
+                </form>
+
                 </form>
             </div>
         <% }); %>

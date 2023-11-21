@@ -16,14 +16,15 @@
       </div>
       <div class="card-body">
         <!-- Début du formulaire -->
-        <form action="/dashboard/ajouter-abonnement" method="post">
-          <input type="text" name="name" placeholder="Nom de l'abonnement" required>
-          <textarea name="description" placeholder="Description" required></textarea>
-          <input type="number" name="price" placeholder="Prix" required>
-          <input type="number" name="duration" placeholder="Durée en mois" required>
+<form action="/dashboard/ajouter-abonnement" method="post" enctype="multipart/form-data">
+  <input type="text" name="nom" placeholder="Nom de l'abonnement" required>
+  <textarea name="description" placeholder="Description" required></textarea>
+  <input type="number" name="prix" placeholder="Prix" required>
+  <input type="number" name="duree" placeholder="Durée en mois" required>
+  <input type="file" name="abonnementImage" accept="image/*">
+  <button type="submit">Ajouter l'abonnement</button>
+</form>
 
-          <button type="submit">Ajouter l'abonnement</button>
-        </form>
       </div>
     </div>
   </div>

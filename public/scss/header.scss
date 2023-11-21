@@ -109,10 +109,64 @@ header {
 }
 
 .parallax-section {
-  // Styles pour la section de parallax
-}
+  background-image: url('../images/img-bgc1.png'); // Remplacez par le chemin de votre image de fond
+  background-attachment: fixed; // Essentiel pour l'effet parallaxe
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 400px; // Ajustez selon vos besoins
 
-// Autres styles...
+  // Overlay pour améliorer la lisibilité du texte
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $parallax-overlay-color;
+    z-index: 1;
+  }
+
+  .parallax-content {
+    position: relative;
+    z-index: 2; // S'assurer que le contenu est au-dessus de l'overlay
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: $white-color;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .button-link {
+      display: inline-block;
+      background-color: $white-color;
+      color: $primary-color;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $button-hover-bg;
+        color: $button-hover-color;
+      }
+    }
+  }
+}
 
 // Media queries
 @media (min-width: 1024px) {

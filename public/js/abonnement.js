@@ -17,3 +17,25 @@ function toggleFaqAnswer(faqQuestionElement) {
     answer.style.display = isAnswerVisible ? 'none' : 'block';
     icon.textContent = isAnswerVisible ? '+' : '-';
 }
+
+ document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch('/contact', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('popupMessage').style.display = 'flex'; // Affiche la popup
+    })
+    .catch(error => {
+      console.error('Erreur:', error);
+    });
+
+    document.getElementById('closePopup').addEventListener('click', function() {
+      document.getElementById('popupMessage').style.display = 'none'; // Cache la popup
+    });
+  });

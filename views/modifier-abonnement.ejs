@@ -15,7 +15,7 @@
                 <h2 class="card-title">Modifier les Informations</h2>
             </div>
             <div class="card-body">
-                <form action="/dashboard/modifier-abonnement/<%= abonnement._id %>" method="POST">
+                <form method="POST" action="/dashboard/modifier-abonnement/<%= abonnement._id %>?_method=PUT" enctype="multipart/form-data">
                     <label for="name">Nom de l'abonnement:</label>
                     <input type="text" id="name" name="name" value="<%= abonnement.name %>" required>
   

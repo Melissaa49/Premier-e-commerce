@@ -7,6 +7,7 @@ const checkUserRole = require('./middleware/checkUserRole');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const profileController = require('./controllers/profileController');
+const authRoutes = require('./controllers/authController');
 const policyController = require('./controllers/policyController');
 const { body, validationResult } = require('express-validator');
 const MongoStore = require('connect-mongo');
@@ -48,7 +49,7 @@ app.use(session({
     mongoUrl: process.env.MONGODB_URI 
   }),
   cookie: {
-    secure: false, // à true si vous êtes derrière un proxy et utilisez HTTPS
+    secure: false, // à true si derrière un proxy et j'utilise HTTPS
     httpOnly: true,
     maxAge: 3600000 // 1 heure
   }
@@ -57,6 +58,7 @@ app.use(session({
 // Routes
 app.use('/dashboard', dashboardRoutes);
 app.use('/contact', contactRoutes);
+app.use('/auth', authRoutes);
 
 
 
@@ -77,21 +79,6 @@ app.get('/', (req, res) => {
   res.render('index', { userId });
 });
 
-app.get('/dashboard', checkUserRole.isAdmin, (req, res) => {
-  res.render('dashboard');
-});
-
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-app.get('/signup', (req, res) => {
-  res.render('signup');
-});
-app.get('/contact', (req, res) => {
-  res.render('contact');
-});
-
 app.get('/abonnement', (req, res) => {
   res.render('abonnement');
 });
@@ -106,65 +93,6 @@ app.get('/politique-confidentialite', (req, res) => {
 
 app.get('/profile', profileController.renderProfilePage);
 app.get('/profile/deconnexion', profileController.logoutUser);
-
-app.post('/signup', 
-  body('email').isEmail().withMessage('Entrez une adresse e-mail valide.'),
-  body('password').isLength({ min: 5 }).withMessage('Le mot de passe doit contenir au moins 5 caractères.'),
-  body('confirmPassword').custom((value, { req }) => {
-    if (value !== req.body.password) {
-      throw new Error('Les mots de passe ne correspondent pas.');
-    }
-    return true;
-  }),
-  async (req, res) => {
-    // Vérification des erreurs de validation
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-   try {
-      const { email, password } = req.body;
-      const hashedPassword = await bcrypt.hash(password, 10); // Hashage du mot de passe
-
-      const newUser = new userModel({
-        email: email,
-        password: hashedPassword, 
-      });
-
-      await newUser.save();
-
-      console.log('Utilisateur inscrit avec succès.');
-      res.redirect('/login');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Erreur lors de l\'inscription');
-    }
-});
-
-app.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    const user = await userModel.findOne({ email: email });
-
-    if (!user) {
-      return res.status(401).send('Adresse e-mail incorrecte');
-    }
-
-    const isPasswordValid = await user.comparePassword(password);
-
-    if (!isPasswordValid) {
-      return res.status(401).send('Mot de passe incorrect');
-    }
-
-    req.session.userId = user._id;
-    res.redirect('/dashboard');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Erreur lors de la connexion');
-  }
-});
 
 
 app.listen(port, () => {

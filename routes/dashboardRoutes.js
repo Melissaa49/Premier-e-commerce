@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const dashboardController = require('../controllers/dashboardController');
-const Product = require('../models/productModel'); 
+const checkUserRole = require('../middleware/checkUserRole');
 const multer = require('multer');
 
 
@@ -17,6 +17,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//voir le dashboard 
+router.get('/', checkUserRole.isAdmin, dashboardController.dashboardMain);
+
 // Routes pour la liste des clients, produits et commandes
 router.get('/liste-clients', dashboardController.getClients);
 router.get('/liste-de-produits', dashboardController.getProducts);
@@ -25,17 +28,17 @@ router.get('/product-user', dashboardController.getProductUser);
 router.get('/ajouter-produit', dashboardController.getAddProduct);
 router.post('/ajouter-produit', upload.single('productImage'), dashboardController.postAddProduct);
 router.get('/modifier-produit/:productId', dashboardController.getEditProduct);
-router.post('/modifier-produit/:productId', dashboardController.postUpdateProduct);
-router.post('/supprimer-produit/:productId', dashboardController.postDeleteProduct);
+router.put('/modifier-produit/:productId', upload.single('productImage'), dashboardController.putUpdateProduct);
+router.delete('/supprimer-produit/:productId', dashboardController.deleteProduct);
 
 
 // Routes pour les abonnements
 router.get('/liste-abonnements', dashboardController.getSubscriptions);
 router.get('/ajouter-abonnement', dashboardController.getAddSubscription);
-router.post('/ajouter-abonnement', dashboardController.postAddSubscription); // Enlevez `upload.single('image')`
+router.post('/ajouter-abonnement', upload.single('abonnementImage'), dashboardController.postAddSubscription);
 router.get('/modifier-abonnement/:subscriptionId', dashboardController.getEditSubscription);
-router.post('/modifier-abonnement/:subscriptionId', dashboardController.postUpdateSubscription);
-router.post('/supprimer-abonnement/:subscriptionId', dashboardController.postDeleteSubscription);
+router.put('/modifier-abonnement/:subscriptionId', upload.single('abonnementImage'), dashboardController.putUpdateSubscription);
+router.delete('/supprimer-abonnement/:subscriptionId', dashboardController.deleteSubscription);
 
 
 router.get('/deconnexion', dashboardController.logout);
