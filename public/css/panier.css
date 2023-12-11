@@ -1,87 +1,93 @@
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f7f7f7;
-      }
-    
-      .cart-container {
-        display: flex;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 20px auto;
-        background-color: #faf4ed; 
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-    
-      .left-section, .right-section {
-        flex: 1;
-        padding: 20px;
-      }
-    
-      .left-section {
-        border-right: 1px solid #ddd; 
-      }
-    
-      .cart-item {
-        margin-bottom: 15px;
-      }
-    
-      .item-name {
-        font-size: 1.2rem;
-        color: #333;
-        margin-bottom: 5px;
-      }
-    
-      .quantity-control {
-        display: flex;
-        align-items: center;
-      }
-    
-      .quantity-control button {
-        padding: 5px 15px;
-        margin: 0 10px;
-        background-color: #e5e5e5;
-        border: none;
-        cursor: pointer;
-      }
-    
-      .total-price {
-        text-align: right;
-        font-size: 1.2rem;
-        color: #333;
-        margin-top: 10px;
-      }
-    
-      .right-section {
-        display: flex;
-        flex-direction: column;
-      }
-    
-      .customer-form {
-        flex: 1;
-      }
-    
-      .customer-form input, .customer-form select, .customer-form button {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-      }
-    
-      .customer-form button {
-        background-color: #333;
-        color: white;
-        border: none;
-      }
-    
-      .back-home {
-        text-align: center;
-        display: block;
-        padding: 10px 20px;
-        background-color: #333;
-        color: #fff;
-        text-decoration: none;
-        margin: 20px auto;
-        width: fit-content;
-      }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0ebe5;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fffaf0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-items {
+    width: 65%;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.product-image img.img-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+.cart-summary {
+    width: 30%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff8f0;
+}
+
+.payment-methods {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment-methods i {
+    margin-right: 5px;
+    font-size: 1.5em;
+}
+
+/* Style des boutons pour correspondre au bouton 'Supprimer' */
+.btn-payment, .btn-apply, .btn-edit, .btn-delete, .btn-back {
+    background-color: #a78b6c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.btn-payment:hover, .btn-apply:hover, .btn-edit:hover, .btn-delete:hover, .btn-back:hover {
+    background-color: #8c756a;
+}
+
+/* Aligner les boutons en bas */
+.cart-buttons {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement les boutons */
+    padding-top: 10px;
+}
+
+.btn-back, .btn-payment {
+    flex: 1; /* Assurer que les boutons prennent une largeur égale */
+    margin: 5px; /* Ajuster la marge autour des boutons */
+    font-size: 0.9em; /* Ajuster la taille de la police si nécessaire */
+}
+  

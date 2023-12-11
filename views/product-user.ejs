@@ -10,49 +10,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 <%- include('partials/header') %>
-<main>
 <div class="nails-intro-section">
     <h1>Découvrez les différents coffrets NailsBox</h1>
     <p>Choisissez le coffret qui vous donne envie !</p>
 </div>
-<section class="nails-cards-section"aria-label="Produits">
-    <div class="nails-card">
-        <div class="nails-card-title">Small size</div>
-        <img src="../images/img4.jpg" alt="Small size nails" class="nails-card-image">
-        <div class="nails-card-price">19,90 €</div>
-        <ul class="nails-card-list">
-            <li>Un coffret press on nails.</li>
-            <li>Des accessoires pour la pose.</li>
-            <li>Des surprises dans chaque coffret</li>
-        </ul>
-        <a href=/panier class="nails-card-button">CHOISIR</a>
-    </div>
-    <div class="nails-card">
-        <div class="nails-card-title">Medium size</div>
-        <img src="../images/img2.jpg" alt="Medium size nails" class="nails-card-image">
-        <div class="nails-card-price">29,90 €</div>
-        <ul class="nails-card-list">
-            <li>Deux coffrets press on nails.</li>
-            <li>Des accessoires pour la pose.</li>
-            <li>Des surprises dans chaque coffret</li>
-        </ul>
-        <a href=/panier class="nails-card-button">CHOISIR</a>
-    </div>
-    <div class="nails-card">
-        <div class="nails-card-title">Large size</div>
-        <img src="../images/img3.jpg" alt="Large size nails" class="nails-card-image">
-        <div class="nails-card-price">49,90 €</div>
-        <ul class="nails-card-list">
-            <li>Un coffret Nails art DIY.</li>
-            <li>Des accessoires pour le DIY.</li>
-            <li>Des surprises dans chaque coffret</li>
-        </ul>
-        <a href=/panier class="nails-card-button">CHOISIR</a>
-    </div>
+<section class="nails-cards-section" aria-label="Produits">
+<% subscriptions.forEach(subscription => { %>
+  <div class="nails-card">
+    <div class="nails-card-title"><%= subscription.nom %></div>
+    <% if(subscription.imageUrl) { %>
+      <img src="<%= subscription.imageUrl %>" alt="<%= subscription.nom %>" class="nails-card-image">
+    <% } else { %>
+      <img src="../images/default-image.jpg" alt="Default Image" class="nails-card-image">
+    <% } %>
+    <div class="nails-card-price"><%= subscription.prix.toFixed(2) %> €</div>
+    <ul class="nails-card-list">
+      <li><%= subscription.description %></li>
+      <li>Durée: <%= subscription.duree %> mois</li>
+    </ul>
+    <button class="add-subscription-to-cart-button" data-subscription-id="<%= subscription._id %>">Choisir</button>
+
+  </div>
+<% }); %>
 </section>
 <article>
     <h2>Nos articles du moment</h2>
@@ -71,10 +54,9 @@
             <% } else { %>
                 <p>Aucune caractéristique disponible pour ce produit.</p>
             <% } %>
-<form action="/acheter/<%= product._id %>" method="post">
-   <input type="hidden" name="productId" value="<%= product._id %>">
-   <button id="ajouter-au-panier" data-product-id="<%= product._id %>">Ajouter au panier</button>
-</form>
+            <input type="number" class="product-quantity" value="1" min="1">
+                <button class="add-to-cart-button" data-product-id="<%= product._id %>">Ajouter au panier</button>
+
         </article>
     <% }); %>
 </div>
@@ -83,12 +65,11 @@
     <div class="parallax-content2">
         <h2>Titre de la Section</h2>
         <p>Texte de la section parallax avec décalage vers la gauche.</p>
-        <a href="/abonnement"class="button-link">S'abonner</a>
+        <a href="/abonnement" class="button-link">S'abonner</a>
     </div>
 </section>
-</main>
 <%- include('partials/footer') %>
 
-<script src="./js/abonnement.js" defer></script>
+<script src="/js/abonnement.js" defer></script>
 </body>
 </html>

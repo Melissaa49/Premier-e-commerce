@@ -265,52 +265,6 @@ text-align: center;
 }
 
 
-.footer {
-    background-color: rgba(201, 166, 146, 0.44);
-    padding: 20px;
-    text-align: center;
-    color: #000; 
-    height: 250px; 
-    margin-bottom: 0;
-    margin-top: 50px;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center;
-}
-
-.footer-links ul,
-.legal-links ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li,
-.legal-links li {
-    display: inline;
-    margin: 0 10px;
-}
-
-.footer-links a,
-.legal-links a {
-    color: #000; 
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-links a:hover,
-.legal-links a:hover {
-    text-decoration: underline;
-}
-
-.copyright {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #000; 
-    margin-top: 10px; 
-}
-
-
 
 
 

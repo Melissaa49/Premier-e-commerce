@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récapitulatif du Panier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/panier.css">
+</head>
+<body>
+<main>
+    <div class="cart-container">
+        <h2>Mon Panier</h2>
+        <% if (cart.items && cart.items.length > 0) { %>
+            <div class="cart-content">
+                <div class="cart-items">
+                    <% cart.items.forEach(item => { %>
+                        <div class="cart-item">
+                            <div class="product-image">
+                                <img src="<%= item.product.imageUrl %>" alt="<%= item.product.name %>" class="img-circle">
+                            </div>
+                            <div class="product-details">
+                                <h3><%= item.product.name %></h3>
+                                <select class="quantity-select" data-product-id="<%= item.product._id %>">
+                                    <% for(let i = 1; i <= 10; i++) { %>
+                                        <option value="<%= i %>" <%= item.quantity === i ? 'selected' : '' %>><%= i %></option>
+                                    <% } %>
+                                </select>
+                                <p class="product-price">Prix : <%= item.product.price %>€</p>
+                                <button class="btn-delete" data-product-id="<%= item.product._id %>">Supprimer</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="cart-summary">
+                  <p class="subtotal">Sous-total : <%= cart.subTotal %>€</p>
+                  <p>Frais de livraison : 4.90€</p>
+                  <p class="total">Total : <%= cart.total %>€</p>
+                    <div class="payment-methods">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-paypal"></i>
+                    </div>
+                    <input type="text" placeholder="Code de promotion">
+                    <button class="btn-apply">Appliquer</button>
+                </div>
+            </div>
+        <% } else { %>
+            <p>Votre panier est vide.</p>
+        <% } %>
+        <a href="/dashboard/product-user" class="btn-back">Retour aux produits</a>
+        <button class="btn-payment">Payer</button>
+    </div>
+</main>
+<script src="/js/abonnement.js"></script>
+</body>
+</html>

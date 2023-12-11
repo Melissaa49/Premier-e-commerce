@@ -117,18 +117,17 @@ exports.deleteProduct = async (req, res) => {
     }
 };
     
-
 exports.getProductUser = async (req, res) => {
   try {
-    const userId = req.session.userId; 
+    const userId = req.session.userId;
     const products = await productModel.find();
-    res.render('product-user', { userId, products }); 
+    const subscriptions = await Subscription.find(); // Récupérez les abonnements ici
+    res.render('product-user', { userId, products, subscriptions }); // Passez les abonnements au template
   } catch (error) {
     console.error(error);
-    res.status(500).send('Erreur lors de la récupération des produits');
+    res.status(500).send('Erreur lors de la récupération des produits et des abonnements');
   }
 };
-
 // Fonction pour afficher la liste des abonnements
 exports.getSubscriptions = async (req, res) => {
   try {
@@ -216,7 +215,16 @@ exports.deleteSubscription = async (req, res) => {
     }
 };
 
-
+//afficher les abonnements dans product-user
+exports.getSubscriptionsForUserView = async (req, res) => {
+    try {
+        const subscriptions = await Subscription.find(); // Récupération de tous les abonnements
+        res.render('product-user', { subscriptions }); 
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erreur lors de la récupération des abonnements');
+    }
+};
 // Fonction pour gérer la déconnexion
 exports.logout = (req, res) => {
     req.session.destroy((err) => {

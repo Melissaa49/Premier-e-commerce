@@ -2,20 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const userModel = require('./models/userModel');
-const checkUserRole = require('./middleware/checkUserRole');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+const cartController = require('./controllers/cartController');
 const contactRoutes = require('./routes/contactRoutes');
 const profileController = require('./controllers/profileController');
 const authRoutes = require('./controllers/authController');
-const policyController = require('./controllers/policyController');
 const { body, validationResult } = require('express-validator');
 const MongoStore = require('connect-mongo');
-const bcrypt = require('bcrypt');
 const methodOverride = require('method-override');
-
-
-
 
 
 const dotenv = require('dotenv');
@@ -54,11 +49,13 @@ app.use(session({
     maxAge: 3600000 // 1 heure
   }
 }));
+app.use(cartController.cartMiddleware);
 
 // Routes
 app.use('/dashboard', dashboardRoutes);
 app.use('/contact', contactRoutes);
 app.use('/auth', authRoutes);
+app.use('/cart', cartRoutes);
 
 
 
@@ -81,10 +78,6 @@ app.get('/', (req, res) => {
 
 app.get('/abonnement', (req, res) => {
   res.render('abonnement');
-});
-
-app.get('/panier', (req, res) => {
-  res.render('panier'); 
 });
 
 app.get('/politique-confidentialite', (req, res) => {

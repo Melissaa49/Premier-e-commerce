@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userModel = require('../models/userModel');
+const Cart = require('../models/cartModel');
 const bcrypt = require('bcrypt');
 const { body, validationResult } = require('express-validator');
 
@@ -59,17 +60,36 @@ router.post('/login', async (req, res) => {
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    if (!isPasswordValid) {
-      return res.status(401).send('Adresse e-mail ou mot de passe incorrect');
-    }
+    if (isPasswordValid) {
+      console.log(`Utilisateur connecté - ID: ${user._id}`); // Log pour le débogage
+      req.session.userId = user._id; // Stocker l'ID utilisateur dans la session
 
-    req.session.userId = user._id; // Stocker l'ID utilisateur dans la session
+      // Transférer les articles du panier temporaire au panier de l'utilisateur
+      let userCart = await Cart.findOne({ user: user._id });
+      if (!userCart) {
+        userCart = new Cart({ user: user._id, items: [] });
+      }
+      if (req.session.cart && req.session.cart.items.length > 0) {
+        req.session.cart.items.forEach(itemTemp => {
+          const itemIndex = userCart.items.findIndex(item => item.product.equals(itemTemp.product));
+          if (itemIndex > -1) {
+            userCart.items[itemIndex].quantity += itemTemp.quantity;
+          } else {
+            userCart.items.push(itemTemp);
+          }
+        });
+        await userCart.save();
+        req.session.cart = userCart;
+      }
 
-    // Redirection en fonction du rôle
-    if (user.isAdmin) {
-      res.redirect('/dashboard'); 
+      // Redirection en fonction du rôle
+      if (user.isAdmin) {
+        res.redirect('/dashboard'); 
+      } else {
+        res.redirect('/'); 
+      }
     } else {
-      res.redirect('/'); 
+      return res.status(401).send('Adresse e-mail ou mot de passe incorrect');
     }
   } catch (error) {
     console.error(error);

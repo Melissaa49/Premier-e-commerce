@@ -10,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 <%- include('partials/header') %>
-<section class="cards-section"aria-label="Choix d'abonnement">
+    <section class="cards-section" aria-label="Choix d'abonnement">
     <div class="card">
         <div class="card-title">Small size</div>
         <img src="../images/img4.jpg" alt="Small size nails" class="card-image">
@@ -50,8 +50,8 @@
     </div>
 </section>
 
- <section aria-label="Processus d'abonnement">
-        <h1 class="title">Comment recevoir mon coffret?</h1>
+    <section aria-label="Processus d'abonnement">
+        <h2 class="title">Comment recevoir mon coffret?</h2>
 <div class="container">
   <div class="step">
     <img src="../images/icons-4.png" alt="Choisissez votre coffret">
@@ -76,19 +76,19 @@
 </div>
 </section>
 
-<section class="testimonials-container"aria-label="Témoignages">
-  <div class="testimonial">
-    <div class="stars">★★★★★</div>
-    <h3>"Génial!"</h3>
-    <p>Je suis tellement heureuse d'avoir découvert NailsBox ! C'est difficile de trouver le temps de me rendre dans un salon de manucure pour obtenir des ongles parfaits. Mais avec NailsBox, j'ai trouvé la solution idéale.</p>
-    <div class="author">Cathia.</div>
+    <div class="testimonials-container" aria-label="Témoignages">
+    <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <h3>"Génial!"</h3>
+        <p>Je suis tellement heureuse d'avoir découvert NailsBox ! C'est difficile de trouver le temps de me rendre dans un salon de manucure pour obtenir des ongles parfaits. Mais avec NailsBox, j'ai trouvé la solution idéale.</p>
+        <div class="author">Cathia.</div>
   </div>
 
   <div class="testimonial">
-    <div class="stars">★★★★★</div>
-    <h3>"Super concept"</h3>
-    <p>Les press-on nails de NailsBox sont incroyables. J'ai été impressionnée par la variété des designs et des couleurs disponibles. Chaque mois, je suis surprise et excitée de découvrir les nouvelles créations qui arrivent dans ma box!</p>
-    <div class="author">Nina.</div>
+        <div class="stars">★★★★★</div>
+        <h3>"Super concept"</h3>
+        <p>Les press-on nails de NailsBox sont incroyables. J'ai été impressionnée par la variété des designs et des couleurs disponibles. Chaque mois, je suis surprise et excitée de découvrir les nouvelles créations qui arrivent dans ma box!</p>
+        <div class="author">Nina.</div>
   </div>
 
   <div class="testimonial">
@@ -97,7 +97,7 @@
     <p>Je n'ai plus à m'inquiéter de prendre rendez-vous ou de me déplacer pour obtenir des ongles magnifiques. J'ai reçu de nombreux compliments et personne ne peut croire qu'ils ne sont pas faits en salon</p>
     <div class="author">Layla.</div>
   </div>
-</section>
+</div>
 
  <section class="faq-container" aria-label="FAQ">
         <h1 class="faq-title">Vous avez des questions?</h1>
@@ -129,7 +129,8 @@
         </div>
     </div>
 </section>
-<section class="features-container">
+    <div class="features-container">
+       
     <div class="feature-item">
         <img src="../images/product-2.jpg" alt="Paiement sécurisé">
         <p>Paiement sécurisé</p>
@@ -146,17 +147,16 @@
         <img src="../images/user-2.jpg" alt="Recommandez">
         <p>Recommandez</p>
     </div>
-</section>
-<section class="video-container" aria-label="Vidéo explicative">
-    <iframe 
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/_o4y3LO_Xhw" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
-</section>
+</div>
+    <section class="video-container" aria-label="Vidéo explicative">
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/_o4y3LO_Xhw" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </section>
 <%- include('partials/footer') %>
 
 <script src="./js/abonnement.js" defer></script>
